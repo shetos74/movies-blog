@@ -7,7 +7,6 @@ export default async function animeReviewPage({
 }) {
 
   const { animeId } = await params;
-  console.log("🚀 ~ animeReviewPage ~ slug:", animeId)
 
   return <div>anime review</div>;
 }
