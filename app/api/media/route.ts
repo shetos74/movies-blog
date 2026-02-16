@@ -1,9 +1,15 @@
 import { connectDB } from "../../../lib/mongodb.js";
 import Media from "../../../models/Media.js";
+import mongoose from "mongoose";
+
+async function connect() {
+  if (mongoose.connection.readyState === 1) return;
+  await mongoose.connect(process.env.MONGODB_URI as string);
+}
 
 export async function GET() {
     try {
-        await connectDB()
+        await connect()
         const media = await Media.find().limit(50).lean();
         
         return new Response(JSON.stringify(media), {
