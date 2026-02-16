@@ -43,14 +43,6 @@ async function seed() {
     await Review.deleteMany({});
     await Media.deleteMany({});
 
-    // Optional: drop legacy 'users' collection if it exists (removes User table)
-    const hasUsers = await mongoose.connection.db
-      .listCollections({ name: "users" })
-      .hasNext();
-    if (hasUsers) {
-      await mongoose.connection.db.dropCollection("users");
-      console.log("Dropped legacy 'users' collection");
-    }
 
     // Insert movies
     const createdMovies = await Movie.insertMany(seedMovies);
@@ -84,14 +76,14 @@ async function seed() {
         media_url: createdMovies[1].cover_image_url,
         media_type: "cover",
         caption: "Cover image",
-        display_order: 1,
+        display_order: 2,
       },
       {
         movie_id: createdMovies[2]._id,
         media_url: createdMovies[2].cover_image_url,
         media_type: "cover",
         caption: "Cover image",
-        display_order: 1,
+        display_order: 3,
       },
     ];
 

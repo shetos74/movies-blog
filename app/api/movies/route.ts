@@ -11,7 +11,6 @@ async function connect() {
 export async function GET() {
   try {
     await connect();
-
     const movies = await Movie.find().limit(50).lean();
     const ids = movies.map((m) => m._id);
 

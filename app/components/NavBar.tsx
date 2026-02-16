@@ -7,7 +7,7 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <div className="flex p-4">
+    <div className="flex p-4 bg-[#3d0505]">
       <h2 className="text-2xl">Shetos</h2>
       <ul className="flex gap-4 ml-4">
         <li className={clsx("flex items-center justify-center px-3 py-1 rounded-2xl", { "bg-red-800": pathname === "/" })}>
