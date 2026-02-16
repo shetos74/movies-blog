@@ -1,6 +1,5 @@
-import { connectDB } from "@/lib/mongodb";
-import mongoose from "mongoose";
-import Media from "@/models/Media";
+import { connectDB } from "../../../lib/mongodb.js";
+import Media from "../../../models/Media.js";
 
 export async function GET() {
     try {
