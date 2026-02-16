@@ -1,4 +1,3 @@
-import { connectDB } from "../../../lib/mongodb.js";
 import Media from "../../../models/Media.js";
 import mongoose from "mongoose";
 
@@ -27,7 +26,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
     try {
-        await connectDB()
+        await connect()
         const body = await request.json();
         const newMedia = new Media(body);
         await newMedia.save();
